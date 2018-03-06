@@ -1,4 +1,4 @@
-FROM ffrolvlad/alpine-scala
+FROM frolvlad/alpine-scala
  
 
 ENV SPARK_HOME  /usr/local/spark
