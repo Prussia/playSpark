@@ -6,13 +6,13 @@ ENV SPARK_HOME  /usr/local/spark
 
 ARG SPARK_VERSION=2.2.0
 ARG SPARK_BINARY_ARCHIVE_NAME=spark-${SPARK_VERSION}-bin-hadoop2.7
-ARG SPARK_BINARY_DOWNLOAD_URL=https://www.apache.org/dyn/closer.lua/spark/${SPARK_VERSION}/${SPARK_BINARY_ARCHIVE_NAME}.tgz
+ARG SPARK_BINARY_DOWNLOAD_URL=http://d3kbcqa49mib13.cloudfront.net/${SPARK_BINARY_ARCHIVE_NAME}.tgz
 
 
 ENV SPARK_HOME  /usr/local/spark
 ENV PATH        $JAVA_HOME/bin:$SCALA_HOME/bin:$SPARK_HOME/bin:$SPARK_HOME/sbin:$PATH
 
-RUN apk add --no-cache --virtual=.build-dependencies wget ca-certificates bash && \
+RUN apk add --no-cache --virtual=.build-dependencies wget ca-certificates  && \
     apk add --no-cache bash && \
     cd "/tmp" && \
     wget -qO - ${SPARK_BINARY_DOWNLOAD_URL} | tar -xz -C /usr/local/ && \
@@ -34,4 +34,4 @@ WORKDIR /root
 # Spark worker web UI on 8081.
 EXPOSE 4040 8080 8081
 
-CMD ["/bin/bash"]
+
