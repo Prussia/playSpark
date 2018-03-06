@@ -35,3 +35,4 @@ WORKDIR /root
 EXPOSE 4040 8080 8081
 
 
+CMD ["/bin/bash"]
