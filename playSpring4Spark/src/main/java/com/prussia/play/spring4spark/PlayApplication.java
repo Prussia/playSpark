@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class PlayApplication implements CommandLineRunner {
 	
 	@Autowired
-	private SparkAppService application;
+	private SparkAppService sparkAppService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(PlayApplication.class, args);
@@ -17,7 +17,7 @@ public class PlayApplication implements CommandLineRunner {
 	
 	@Override
 	public void run(String... args) throws Exception {
-		application.process();
+		sparkAppService.process();
 	}		
 	
 }

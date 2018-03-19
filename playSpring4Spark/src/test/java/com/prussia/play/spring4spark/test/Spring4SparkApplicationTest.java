@@ -30,7 +30,7 @@ import com.prussia.play.spring4spark.test.config.SparkSession4TestConfig;
 public class Spring4SparkApplicationTest {
 	
 	@Autowired
-	SparkAppService application;
+	SparkAppService sparkAppService;
 	
 	@Autowired
 	private SparkSession sparkSession;
@@ -57,7 +57,7 @@ public class Spring4SparkApplicationTest {
 	
 	@Test
 	public void testSum() {
-		assertEquals(95, application.process());
+		assertEquals(95, sparkAppService.process());
 	}
 
 }
