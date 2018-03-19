@@ -40,7 +40,8 @@ public class Spring4SparkApplicationTest {
 	@Before
 	public void setup() {
 		if (!setupDone) {
-			StructType schema = new StructType().add(DataTypes.createStructField("name", DataTypes.StringType, true))
+			StructType schema = new StructType()
+					.add(DataTypes.createStructField("name", DataTypes.StringType, true))
 					.add(DataTypes.createStructField("score", DataTypes.IntegerType, true));
 			
 			List<Row> data = new ArrayList<>();
