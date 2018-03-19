@@ -9,3 +9,4 @@ playSpring4Spark/.classpath
 playSpring4Spark/derby.log
 playSpring4Spark/metastore_db
 playSpring4Spark/spark-warehouse
+*.log
