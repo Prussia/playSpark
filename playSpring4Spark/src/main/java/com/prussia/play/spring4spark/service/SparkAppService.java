@@ -1,4 +1,4 @@
-package com.prussia.play.spring4spark;
+package com.prussia.play.spring4spark.service;
 
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;

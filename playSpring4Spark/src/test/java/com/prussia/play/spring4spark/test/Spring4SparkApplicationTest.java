@@ -22,7 +22,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.prussia.play.spring4spark.SparkAppService;
+import com.prussia.play.spring4spark.service.SparkAppService;
 import com.prussia.play.spring4spark.test.config.SparkSession4TestConfig;
 
 @RunWith(SpringRunner.class)

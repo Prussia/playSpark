@@ -11,7 +11,7 @@ public class SparkSession4TestConfig {
 		return SparkSession
 				.builder()
 				.config("spark.ui.port", "4041")
-				.appName("SparkWithSpringTest")
+				.appName("Spring4SparkTest")
 				.master("local")
 				.enableHiveSupport()
 				.getOrCreate();
