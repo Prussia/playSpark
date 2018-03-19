@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SpringSampleApplication {
+public class SparkAppService {
 	@Autowired
 	private SparkSession sparkSession;
 	

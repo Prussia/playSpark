@@ -6,13 +6,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Bootstrap implements CommandLineRunner {
+public class PlayApplication implements CommandLineRunner {
 	
 	@Autowired
-	private SpringSampleApplication application;
+	private SparkAppService application;
 
 	public static void main(String[] args) {
-		SpringApplication.run(Bootstrap.class, args);
+		SpringApplication.run(PlayApplication.class, args);
 	}
 	
 	@Override

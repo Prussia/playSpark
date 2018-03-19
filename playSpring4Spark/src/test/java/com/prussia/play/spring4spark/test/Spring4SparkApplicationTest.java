@@ -22,15 +22,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.prussia.play.spring4spark.SpringSampleApplication;
-import com.prussia.play.spring4spark.test.config.TestConfig;
+import com.prussia.play.spring4spark.SparkAppService;
+import com.prussia.play.spring4spark.test.config.SparkSession4TestConfig;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes={TestConfig.class, SpringSampleApplication.class})
-public class SpringSampleApplicationTest {
+@SpringBootTest(classes={SparkSession4TestConfig.class, SparkAppService.class})
+public class Spring4SparkApplicationTest {
 	
 	@Autowired
-	SpringSampleApplication application;
+	SparkAppService application;
 	
 	@Autowired
 	private SparkSession sparkSession;
