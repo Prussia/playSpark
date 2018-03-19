@@ -6,14 +6,14 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 @Configuration
-@Profile(value = { "prod" })
-public class SparkSessionConfig {
+@Profile(value = { "local" })
+public class SparkSessionLocalConfig {
 	@Bean
 	public SparkSession sparkSession() {
 		return SparkSession
 				.builder()
 				.appName("SparkWithSpring")
-				.master("yarn")
+				.master("local")
 				.enableHiveSupport()
 				.getOrCreate();
 	}
