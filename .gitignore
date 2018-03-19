@@ -1,0 +1,8 @@
+
+playSpring4Spark/.idea
+**/target
+*.prefs
+playSpring4Spark/.settings
+playSpring4Spark/.springBeans
+playSpring4Spark/.project
+playSpring4Spark/.classpath
