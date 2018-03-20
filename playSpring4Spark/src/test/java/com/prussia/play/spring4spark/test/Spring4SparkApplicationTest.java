@@ -57,5 +57,10 @@ public class Spring4SparkApplicationTest {
 	public void testGetMaxScore() {
 		assertEquals(95, sparkAppService.getMaxScore());
 	}
+	
+	@Test
+	public void testprintDataFrames() {
+		sparkAppService.printDataFrames();
+	}
 
 }

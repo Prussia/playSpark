@@ -25,4 +25,9 @@ public class SparkAppService {
 		return result;
 	}
 	
+	public void printDataFrames() {
+		Dataset<Row> df = sparkSession.read().json("./src/main/resources/people.json");
+		
+		df.show();
+	}
 }
