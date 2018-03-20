@@ -5,8 +5,6 @@ import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 import static org.apache.spark.sql.functions.max;
 
-import javax.sql.DataSource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -14,9 +12,6 @@ import org.springframework.stereotype.Component;
 public class SparkAppService {
 	@Autowired
 	private SparkSession sparkSession;
-	
-	@Autowired
-	private DataSource ds;
 	
 	public int process() {
 		System.out.println("Processing started...");

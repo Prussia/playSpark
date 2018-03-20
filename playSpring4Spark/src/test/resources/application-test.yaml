@@ -1,0 +1,4 @@
+playspring:
+    spark:
+      appName: playSpring4SparkTest
+      master: local
