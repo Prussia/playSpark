@@ -11,6 +11,8 @@ public class SparkSession4TestConfig {
 		return SparkSession
 				.builder()
 				.config("spark.ui.port", "4041")
+				.config("spark.sql.shuffle.partitions", 6)
+				.config("spark.executor.memory", "1g")
 				.appName("Spring4SparkTest")
 				.master("local")
 				.enableHiveSupport()

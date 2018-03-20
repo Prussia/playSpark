@@ -19,7 +19,7 @@ public class PlayApplication implements CommandLineRunner {
 	
 	@Override
 	public void run(String... args) throws Exception {
-		sparkAppService.process();
+		sparkAppService.getMaxScore();
 	}		
 	
 }

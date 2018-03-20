@@ -54,8 +54,8 @@ public class Spring4SparkApplicationTest {
 	}
 	
 	@Test
-	public void testSum() {
-		assertEquals(95, sparkAppService.process());
+	public void testGetMaxScore() {
+		assertEquals(95, sparkAppService.getMaxScore());
 	}
 
 }
