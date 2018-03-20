@@ -7,11 +7,13 @@ import org.springframework.context.EnvironmentAware;
 import org.springframework.core.env.Environment;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @ConfigurationProperties(prefix = "playspring.spark")
 @Getter
 @Setter
+@NoArgsConstructor
 public class SparkProperties implements BeanClassLoaderAware, EnvironmentAware, InitializingBean {
 	
 	private String appName;
