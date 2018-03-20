@@ -1,6 +1,6 @@
 spring:
     datasource:
-      url: jdbc:mysql://localhost:3400/playSpring?autoReconnect=true&useSSL=false
-      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:sqlserver://localhost:1433;database=playSpring
+      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
       username: playSpring
       password: playSpring
