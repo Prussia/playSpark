@@ -2,3 +2,19 @@ playspring:
     spark:
       appName: playSpring4SparkTest
       master: local
+spring:
+  data:   
+    jpa:
+      repositories:
+        enable: true
+      hibernate.ddl-auto: update
+      show-sql: true
+      properties:
+        hibernate:
+          format_sql: false
+          use_sql_comments: true
+  datasource:
+    url: jdbc:hsqldb:mem:testdb
+    driver-class-name: org.hsqldb.jdbc.JDBCDriver
+    username: sa
+    password: 

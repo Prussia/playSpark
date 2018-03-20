@@ -1,4 +1,4 @@
-package com.prussia.play.spring4spark.test;
+package com.prussia.play.spring4spark.test.service;
 
 import static org.junit.Assert.assertEquals;
 
@@ -17,6 +17,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.prussia.play.spring4spark.service.SparkAppService;
@@ -24,7 +25,8 @@ import com.prussia.play.spring4spark.test.config.SparkSession4TestConfig;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes={SparkSession4TestConfig.class, SparkAppService.class})
-public class Spring4SparkApplicationTest {
+@ActiveProfiles(value = {"test"})
+public class SparkAppServiceTest {
 	
 	@Autowired
 	SparkAppService sparkAppService;
