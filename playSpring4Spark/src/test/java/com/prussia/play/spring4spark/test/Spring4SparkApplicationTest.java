@@ -36,6 +36,7 @@ public class Spring4SparkApplicationTest {
 
 	@Before
 	public void setup() {
+		
 		if (!setupDone) {
 			StructType schema = new StructType()
 					.add(DataTypes.createStructField("name", DataTypes.StringType, true))
@@ -61,6 +62,7 @@ public class Spring4SparkApplicationTest {
 	@Test
 	public void testprintDataFrames() {
 		sparkAppService.printDataFrames();
+		sparkAppService.printDFbySQL();
 	}
 
 }
