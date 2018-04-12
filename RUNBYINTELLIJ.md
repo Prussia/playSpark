@@ -1,4 +1,4 @@
-# Start by IntelliJ
+# Configuration and Debug Settings by IntelliJ
 
 *Main class:*
 
