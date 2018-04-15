@@ -5,6 +5,12 @@ import org.apache.spark.sql._
 import org.apache.spark.sql.functions._
 import org.apache.spark.{SparkConf, SparkContext}
 
+case class Geo(logrecno: String, name: String, sumlev: String)
+
+case class Population(logrecno: String, male: Int, female: Int)
+
+case class CountyPopulation(county: String, male: Int, female: Int)
+
 object RankCountiesBySexRDD {
 
   def main(arg: Array[String]): Unit = {
@@ -18,9 +24,9 @@ object RankCountiesBySexRDD {
 
     var geoRDD: RDD[Geo] = sparkSession.sparkContext.textFile("testdata/cogeo2010.sf1")
       .map(row => Geo(
-        row.substring(18,25), // Logical Record No
-        row.substring(226,316).trim, // Name
-        row.substring(8,11) // Summary Level (050 is county)
+        row.substring(18, 25), // Logical Record No
+        row.substring(226, 316).trim, // Name
+        row.substring(8, 11) // Summary Level (050 is county)
       )).filter(geo => geo.sumlev == "050")
 
     val populationRDD: RDD[Population] = sparkSession.sparkContext.textFile("testdata/co000182010.sf1")
@@ -36,10 +42,10 @@ object RankCountiesBySexRDD {
 
     // flatten
     val flatRDD: RDD[CountyPopulation] = join.map((tuple: (String, (Geo, Population)))
-        => CountyPopulation(tuple._2._1.name, tuple._2._2.male, tuple._2._2.female))
+    => CountyPopulation(tuple._2._1.name, tuple._2._2.male, tuple._2._2.female))
 
     // show top N
-    flatRDD.sortBy((p: CountyPopulation) => p.male*1.0f/p.female, ascending = true)
+    flatRDD.sortBy((p: CountyPopulation) => p.male * 1.0f / p.female, ascending = true)
       .zipWithIndex()
       .filter((t: (CountyPopulation, Long)) => t._2 < 10)
       .foreach(println)
@@ -47,12 +53,6 @@ object RankCountiesBySexRDD {
   }
 
 }
-
-case class Geo(logrecno: String, name: String, sumlev: String)
-
-case class Population(logrecno: String, male: Int, female: Int)
-
-case class CountyPopulation(county: String, male: Int, female: Int)
 
 
 

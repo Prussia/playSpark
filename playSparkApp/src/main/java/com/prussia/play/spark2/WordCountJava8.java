@@ -1,4 +1,5 @@
 package com.prussia.play.spark2;
+
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.Logger;

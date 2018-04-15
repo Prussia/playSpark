@@ -1,4 +1,5 @@
 package com.prussia.play.spark2;
+
 import java.io.Serializable;
 
 class JPopulationSummary implements Serializable {
@@ -41,7 +42,7 @@ class JPopulationSummary implements Serializable {
     }
 
     public float getMFRatio() {
-        return male*1.0f/female;
+        return male * 1.0f / female;
     }
 
     @Override

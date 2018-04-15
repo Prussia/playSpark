@@ -2,7 +2,7 @@
 <Configuration status="INFO">
 
     <Properties>
-        <Property name="LOG_DIR" value="/Users/prussia" />
+        <Property name="LOG_DIR" value="/Users/prussia"/>
     </Properties>
     <Appenders>
         <Console type="Console" name="STDOUT">
@@ -23,8 +23,8 @@
             <DefaultRolloverStrategy max="50"/>
         </RollingFile>
         <Async name="AsyncRollingFile">
-	      <AppenderRef ref="RollingFile"/>
-	    </Async>
+            <AppenderRef ref="RollingFile"/>
+        </Async>
     </Appenders>
     <Loggers>
         <Root level="INFO">
@@ -32,7 +32,7 @@
             <AppenderRef ref="STDOUT"/>
         </Root>
 
-        <logger name="com.prussia.play.spark2" level="INFO" additivity="false" >
+        <logger name="com.prussia.play.spark2" level="INFO" additivity="false">
             <AppenderRef ref="STDOUT"/>
             <AppenderRef ref="AsyncRollingFile"/>
         </logger>

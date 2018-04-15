@@ -1,4 +1,5 @@
 package com.prussia.play.spark2;
+
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
@@ -8,26 +9,26 @@ import java.util.Arrays;
 
 public class JRankCountiesBySexUsingSQL {
 
-  public static void main(String[] args) {
+    public static void main(String[] args) {
 
-    SparkConf sparkConf = new SparkConf()
-        .setAppName("Example")
-        .setMaster("local[*]");
+        SparkConf sparkConf = new SparkConf()
+                .setAppName("Example")
+                .setMaster("local[*]");
 
-    JavaSparkContext sc = new JavaSparkContext(sparkConf);
+        JavaSparkContext sc = new JavaSparkContext(sparkConf);
 
-    SQLContext sqlContext = new SQLContext(sc);
+        SQLContext sqlContext = new SQLContext(sc);
 
-    JavaRDD<JGeo> geoRDD = sc.textFile("testdata/cogeo2010.sf1")
-        .map(s -> new JGeo(
-            s.substring(18,25), // Logical Record No
-            s.substring(226,316).trim(), // Name
-            s.substring(8,11) // Summary Level (050 is county)
-        ));
+        JavaRDD<JGeo> geoRDD = sc.textFile("testdata/cogeo2010.sf1")
+                .map(s -> new JGeo(
+                        s.substring(18, 25), // Logical Record No
+                        s.substring(226, 316).trim(), // Name
+                        s.substring(8, 11) // Summary Level (050 is county)
+                ));
 
-    JavaRDD<JPopulation> populationRDD = sc.textFile("testdata/co000182010.sf1")
-        .map(s -> s.split(","))
-        .map(row -> new JPopulation(row[4], Integer.parseInt(row[6]), Integer.parseInt(row[30])));
+        JavaRDD<JPopulation> populationRDD = sc.textFile("testdata/co000182010.sf1")
+                .map(s -> s.split(","))
+                .map(row -> new JPopulation(row[4], Integer.parseInt(row[6]), Integer.parseInt(row[30])));
 
 
 //
@@ -54,5 +55,5 @@ public class JRankCountiesBySexUsingSQL {
 //
 //    Arrays.stream(rows).forEach(System.out::println);
 
-  }
+    }
 }

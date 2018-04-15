@@ -1,4 +1,5 @@
 package com.prussia.play.spark2;
+
 import java.io.Serializable;
 
 public class JGeo implements Serializable {

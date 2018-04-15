@@ -1,4 +1,5 @@
 package com.prussia.play.spark2;
+
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
@@ -16,9 +17,9 @@ public class ConvertRddToDataset {
     public static void main(String[] args) {
 
         SparkSession spark = SparkSession.builder()
-            .master("local[*]")
-            .appName("Example")
-            .getOrCreate();
+                .master("local[*]")
+                .appName("Example")
+                .getOrCreate();
 
 
         JavaSparkContext sc = new JavaSparkContext(spark.sparkContext());
@@ -29,9 +30,8 @@ public class ConvertRddToDataset {
         Dataset<Person> ds = spark.createDataset(javaRDD.rdd(), Encoders.bean(Person.class));
 
         //csv
-            //Dataset<Person> peopleDS = spark.read().json(path).as(personEncoder);
+        //Dataset<Person> peopleDS = spark.read().json(path).as(personEncoder);
     }
-
 
 
 }
