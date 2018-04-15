@@ -11,3 +11,7 @@ playSpring4Spark/metastore_db
 playSpring4Spark/spark-warehouse
 *.log
 playSpring4Spark/logs
+*.iml
+.idea
+*.iml
+target
