@@ -1,6 +1,7 @@
 package com.prussia.play.spark2.java;
 
 //import lombok.extern.log4j.Log4j2;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
