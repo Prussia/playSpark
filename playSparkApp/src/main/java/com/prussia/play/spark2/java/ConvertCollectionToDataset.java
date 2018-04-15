@@ -1,6 +1,5 @@
-package com.prussia.play.spark2;
+package com.prussia.play.spark2.java;
 
-import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Encoder;
 import org.apache.spark.sql.Encoders;

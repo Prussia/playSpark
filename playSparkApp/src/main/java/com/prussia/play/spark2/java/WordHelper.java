@@ -1,4 +1,4 @@
-package com.prussia.play.spark2;
+package com.prussia.play.spark2.java;
 
 import java.util.ArrayList;
 import java.util.List;

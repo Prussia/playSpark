@@ -1,28 +1,25 @@
-package com.prussia.play.spark2;
+package com.prussia.play.spark2.java;
 
 import java.io.Serializable;
 
-class JPopulationSummary implements Serializable {
+class JPopulation implements Serializable {
 
-    private String name;
+    private String logrecno;
     private int male;
     private int female;
 
-    public JPopulationSummary() {
-    }
-
-    public JPopulationSummary(String name, int male, int female) {
-        this.name = name;
+    public JPopulation(String logrecno, int male, int female) {
+        this.logrecno = logrecno;
         this.male = male;
         this.female = female;
     }
 
-    public String getName() {
-        return name;
+    public String getLogrecno() {
+        return logrecno;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLogrecno(String logrecno) {
+        this.logrecno = logrecno;
     }
 
     public int getMale() {
@@ -41,14 +38,10 @@ class JPopulationSummary implements Serializable {
         this.female = female;
     }
 
-    public float getMFRatio() {
-        return male * 1.0f / female;
-    }
-
     @Override
     public String toString() {
-        return "PopulationSummary{" +
-                "name='" + name + '\'' +
+        return "com.prussia.play.spark2.scala.Population{" +
+                "logrecno='" + logrecno + '\'' +
                 ", male=" + male +
                 ", female=" + female +
                 '}';

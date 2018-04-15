@@ -1,13 +1,21 @@
+package com.prussia.play.spark2.scala
+
 import java.io.File
 
+import org.apache.logging.log4j.LogManager
 import org.apache.commons.io.FileUtils
 import org.apache.spark.rdd.RDD
-import org.apache.spark.sql.{DataFrame, Dataset, Row, SparkSession}
-import org.apache.spark.{SparkConf, SparkContext}
+import org.apache.spark.sql.SparkSession
 
 object WordCountExample {
+  val log = LogManager.getLogger(getClass)
 
   def main(arg: Array[String]): Unit = {
+    log.debug("main entry debug")
+    log.info("main entry info")
+    log.warn("main entry warn")
+
+    try{
 
     FileUtils.deleteDirectory(new File("testdata/words_scala.txt"))
 
@@ -15,8 +23,6 @@ object WordCountExample {
       .master("local[*]")
       .appName("Example")
       .getOrCreate()
-
-    import spark.implicits._
 
     val textFile: RDD[String] = spark.sparkContext.textFile("testdata/shakespeare.txt")
 
@@ -34,6 +40,9 @@ object WordCountExample {
     // - filter out words with fewer than N characters
     // - convert all words to lower case before the map operation
     // - change the number of partitions
+    }catch {
+      case e @ (_ : RuntimeException | _ : Exception) => log.error("main error happened", e)
+    }
   }
 
 

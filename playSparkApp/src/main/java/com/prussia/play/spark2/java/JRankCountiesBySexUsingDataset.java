@@ -1,13 +1,8 @@
-package com.prussia.play.spark2;
+package com.prussia.play.spark2.java;
 
-import org.apache.spark.SparkConf;
-import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.api.java.function.MapFunction;
 import org.apache.spark.sql.*;
-import org.apache.spark.sql.types.StructType;
-
-import java.util.Collections;
 
 public class JRankCountiesBySexUsingDataset {
 

@@ -1,12 +1,8 @@
-package com.prussia.play.spark2;
+package com.prussia.play.spark2.java;
 
-import org.apache.spark.api.java.JavaRDD;
-import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Encoders;
 import org.apache.spark.sql.SparkSession;
-
-import java.util.Collections;
 
 public class ReadCsvAsDataset {
 

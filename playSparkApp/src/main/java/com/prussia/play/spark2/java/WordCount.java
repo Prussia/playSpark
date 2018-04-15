@@ -1,4 +1,4 @@
-package com.prussia.play.spark2;
+package com.prussia.play.spark2.java;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.spark.SparkConf;
@@ -6,9 +6,7 @@ import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.api.java.function.FlatMapFunction;
-import org.apache.spark.api.java.function.Function;
 import org.apache.spark.api.java.function.PairFunction;
-import scala.Function2;
 import scala.Tuple2;
 
 import java.io.File;

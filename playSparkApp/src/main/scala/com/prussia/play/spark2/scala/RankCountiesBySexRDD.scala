@@ -1,15 +1,7 @@
-import org.apache.spark
+package com.prussia.play.spark2.scala
+
 import org.apache.spark.rdd.RDD
-import org.apache.spark.sql.types.{DataTypes, StructField, StructType}
-import org.apache.spark.sql._
-import org.apache.spark.sql.functions._
-import org.apache.spark.{SparkConf, SparkContext}
-
-case class Geo(logrecno: String, name: String, sumlev: String)
-
-case class Population(logrecno: String, male: Int, female: Int)
-
-case class CountyPopulation(county: String, male: Int, female: Int)
+import org.apache.spark.sql.SparkSession
 
 object RankCountiesBySexRDD {
 
@@ -19,8 +11,6 @@ object RankCountiesBySexRDD {
       .master("local[*]")
       .appName("Example")
       .getOrCreate()
-
-    import sparkSession.implicits._
 
     var geoRDD: RDD[Geo] = sparkSession.sparkContext.textFile("testdata/cogeo2010.sf1")
       .map(row => Geo(
@@ -53,7 +43,3 @@ object RankCountiesBySexRDD {
   }
 
 }
-
-
-
-

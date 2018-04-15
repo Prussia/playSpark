@@ -1,9 +1,8 @@
-import org.apache.spark.sql.functions._
-import org.apache.spark.sql.types.{DataTypes, StructField, StructType}
-import org.apache.spark.sql._
-import org.apache.spark.{SparkConf, SparkContext}
+package com.prussia.play.spark2.scala
 
-object RankCountiesBySexUsingDataset {
+import org.apache.spark.sql.{Dataset, SparkSession}
+
+object RankCountiesBySexUsingSQL {
 
   def main(arg: Array[String]): Unit = {
 
@@ -13,11 +12,6 @@ object RankCountiesBySexUsingDataset {
       .getOrCreate()
 
     import spark.implicits._
-
-    var foo: Dataset[String] = spark.createDataset(List("one", "two", "three"))
-
-    val dataset: Dataset[Geo] = spark.read.option("header", "true").csv("testdata/foo.csv").as[Geo]
-    dataset.show()
 
     var geo: Dataset[Geo] = spark.read.text("testdata/cogeo2010.sf1")
       .map(row => Geo(
@@ -32,18 +26,17 @@ object RankCountiesBySexUsingDataset {
       .map(csv => Population(csv(4), csv(6).toInt, csv(30).toInt))
       .alias("pop")
 
-    val join: Dataset[(Geo, Population)] = geo.joinWith(pop, expr("geo.logrecno = pop.logrecno"))
-    join.printSchema()
-    join.collect().foreach(println)
 
-    // example of map with compile-time type safety
-    join.map((tuple: (Geo, Population)) => tuple._2.male > 10000)
+    geo.registerTempTable("geo")
+    pop.registerTempTable("pop")
+
+    spark.sql(
+      "SELECT geo.name, pop.male, pop.female, pop.male/pop.female as m2f " +
+        "FROM geo JOIN pop ON geo.logrecno = pop.logrecno " +
+        "WHERE geo.sumlev = '050' " +
+        "ORDER BY m2f LIMIT 10"
+    ).collect().foreach(println)
 
   }
 
 }
-
-
-
-
-
